@@ -1,3 +1,25 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.follow-me {
+    position: relative;
+    width: 220px;
+    margin: auto;
+}
+
+.social-btn {
+    display: inline;
+    position: relative;
+    height: 3rem;
+    width: 7rem;
+    top: 1rem;
+    background: white;
+    border-color: transparent;
+    border-radius: 10%;
+    color: blue;
+    text-align: center;
+}
+
+.social-btn:hover {
+    background-color: #eeeeee;
+}
