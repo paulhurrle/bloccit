@@ -8,6 +8,10 @@ Advertisement.find_or_create_by!(title: "1st Advertisement", body: "I sell snozz
 Advertisement.find_or_create_by!(title: "2nd Advertisement", body: "I sell sprockets", price: 600)
 Advertisement.find_or_create_by!(title: "3rd Advertisement", body: "I sell whizpoppers", price: 800)
 
+Question.find_or_create_by!(title: "1st Question", body: "What's your favorite animal?", resolved: true)
+Question.find_or_create_by!(title: "2nd Question", body: "What's your favorite place to visit?", resolved: false)
+Question.find_or_create_by!(title: "3rd Question", body: "What's your favorite hobby?", resolved: false)
+
 50.times do
     Post.create!(
         title: RandomData.random_sentence,

@@ -16,6 +16,20 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- a:focus, a:hover {
-     text-decoration: none;
- }
+a:focus, a:hover {
+    text-decoration: none;
+}
+
+.new_button {
+    color: #fff;
+    background-color: #5cb85c;
+    border: 1px solid transparent;
+    border-color: #4cae4c;
+    border-radius: 4px;
+    text-align: center;
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    padding: 6px 10px;
+    font-size: 14px;
+    vertical-align: middle;
+}
