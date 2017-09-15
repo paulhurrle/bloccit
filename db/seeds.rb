@@ -1,12 +1,12 @@
 require 'random_data'
 
-Post.find_or_create_by!(title: "This is my unique post title", body: "This is my unique post body")
+#Post.find_or_create_by!(title: "This is my unique post title", body: "This is my unique post body")
 
-Comment.find_or_create_by!(body: "This is my unique comment body", post_id: 51)
+#Comment.find_or_create_by!(body: "This is my unique comment body", post_id: 51)
 
-Advertisement.find_or_create_by!(title: "1st Advertisement", body: "I sell snozzcumbers", price: 500)
+#Advertisement.find_or_create_by!(title: "1st Advertisement", body: "I sell snozzcumbers", price: 500)
 
-Question.find_or_create_by!(title: "1st Question", body: "What's your favorite animal?", resolved: true)
+#Question.find_or_create_by!(title: "1st Question", body: "What's your favorite animal?", resolved: true)
 
 # Create topics
 15.times do
@@ -27,14 +27,33 @@ topics = Topic.all
 end
 posts = Post.all
 
-# Create comments
+# Create sponsored posts
+25.times do
+    SponsoredPost.create!(
+        topic: topics.sample,
+        title: RandomData.random_sentence,
+        body: RandomData.random_paragraph,
+        price: 9999
+    )
+end
+sp_posts = SponsoredPost.all
+
+# Create post comments
 100.times do
     Comment.create!(
         post: posts.sample,
         body: RandomData.random_paragraph
     )
 end
-
+=begin
+# Create sponsored post comments
+100.times do
+    Comment.create!(
+        post: sp_posts.sample,
+        body: RandomData.random_paragraph
+    )
+end
+=end
 # Create questions
 50.times do
     Question.create!(
@@ -56,6 +75,7 @@ end
 puts "Seed finished"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
+puts "#{SponsoredPost.count} sponsored posts created"
 puts "#{Comment.count} comments created"
 puts "#{Advertisement.count} advertisements created"
 puts "#{Question.count} questions created"
