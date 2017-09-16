@@ -33,4 +33,12 @@ RSpec.describe User, type: :model do
           expect(user_with_invalid_email).to_not be_valid
       end
   end
+
+  describe "unformatted user name" do
+      it "should capitalize the first letter of first and last name" do
+          user.name = "bill gates"
+          user.save
+          expect(user.name).to eq("Bill Gates")
+      end
+  end
 end
