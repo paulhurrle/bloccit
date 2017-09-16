@@ -16,7 +16,9 @@ class User < ActiveRecord::Base
         if name
             name_arr = []
             name.split.each do |x|
-                name_arr << x.capitalize
+                name_let = x.split("")
+                name_let[0].upcase!
+                name_arr << name_let.join
             end
             self.name = name_arr.join(" ")
         end
