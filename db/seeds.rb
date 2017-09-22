@@ -38,6 +38,17 @@ topics = Topic.all
 end
 posts = Post.all
 
+# Create comments
+100.times do
+    Comment.create!(
+        user: users.sample,
+        post: posts.sample,
+        body: RandomData.random_paragraph
+    )
+end
+
+=begin
+
 # Create sponsored posts
 25.times do
     SponsoredPost.create!(
@@ -49,14 +60,6 @@ posts = Post.all
 end
 sp_posts = SponsoredPost.all
 
-# Create post comments
-100.times do
-    Comment.create!(
-        post: posts.sample,
-        body: RandomData.random_paragraph
-    )
-end
-=begin
 # Create sponsored post comments
 100.times do
     Comment.create!(
@@ -64,7 +67,7 @@ end
         body: RandomData.random_paragraph
     )
 end
-=end
+
 # Create questions
 50.times do
     Question.create!(
@@ -82,6 +85,7 @@ end
         price: 999
     )
 end
+=end
 
 # Create an admin user
 admin = User.create!(
@@ -102,7 +106,4 @@ puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
-puts "#{SponsoredPost.count} sponsored posts created"
 puts "#{Comment.count} comments created"
-puts "#{Advertisement.count} advertisements created"
-puts "#{Question.count} questions created"
