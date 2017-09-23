@@ -32,3 +32,5 @@ source 'https://rubygems.org'
  gem 'bootstrap-sass'
  # used for encrypting user passwords
  gem 'bcrypt'
+ # figaro gem for storing API keys as environment variables
+ gem 'figaro', '1.0'
