@@ -1,0 +1,15 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    </head>
+    <body>
+        <h1>New post "<%= @post.title %>" has been favorited</h1>
+        <p>
+            <%= link_to "View post on site", topic_post_url(@post.topic, @post) %>
+        </p>
+        <p>
+            You will receive updates whenever your post has been commented on.
+        </p>
+    </body>
+</html>
