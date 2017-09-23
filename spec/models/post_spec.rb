@@ -73,5 +73,18 @@ RSpec.describe Post, type: :model do
                 expect(post.rank).to eq (old_rank - 1)
             end
         end
+
+        describe "#create_vote" do
+            it "up votes post on save" do
+                new_post = topic.posts.create!(title: title, body: body, user: user)
+                expect(new_post.votes.count).to eq(1)
+                expect(new_post.up_votes).to eq(1)
+            end
+
+            it "vote is associated with user" do
+                new_post = topic.posts.create!(title: title, body: body, user: user)
+                expect(new_post.votes.first.user).to eq(new_post.user)
+            end
+        end
     end
 end
