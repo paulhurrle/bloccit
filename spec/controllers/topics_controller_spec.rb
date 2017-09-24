@@ -35,7 +35,7 @@ RSpec.describe TopicsController, type: :controller do
       end
     end
 
-     describe "GET new" do
+    describe "GET new" do
       it "returns http redirect" do
         get :new
         expect(response).to redirect_to(new_session_path)

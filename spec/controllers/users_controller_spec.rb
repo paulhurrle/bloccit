@@ -82,4 +82,24 @@ RSpec.describe UsersController, type: :controller do
             expect(assigns(:user)).to eq(factory_user)
         end
     end
+
+    describe "GET show" do
+        before do
+            let(:my_user) { create(:user) }
+            let(:other_user) { create(:user) }
+            let(:my_topic) { create(:topic) }
+            let(:user_post) { create(:post, topic: my_topic, user: my_user) }
+            let(:other_user_post) { create(:post, topic: my_topic, user: other_user) }
+        end
+
+        it "returns http success" do
+            get :show, {id: my_user.id}
+            expect(response).to have_http_status(:success)
+        end
+
+        it "renders the #show view" do
+            get :show, {id: my_user.id}
+            expect(response).to render_template :show
+        end
+    end
 end

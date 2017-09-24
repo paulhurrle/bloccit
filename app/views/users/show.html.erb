@@ -19,8 +19,29 @@
     </div>
 </div>
 
-<h2>Posts</h2>
-<%= render @user.posts %>
+<% if user_has_posts? %>
+    <h2>Posts</h2>
+    <%= render @user.posts %>
+<% else %>
+    <%= "#{@user.name}" %> has not submitted any posts yet. <br>
+<% end %>
 
-<h2>Comments</h2>
-<%= render @user.comments %>
+<% if user_has_comments? %>
+    <h2>Comments</h2>
+    <%= render @user.comments %>
+<% else %>
+    <%= "#{@user.name}" %> has not submitted any comments yet.
+<% end %>
+
+<% if user_has_favorites? %>
+    <h2>Favorite Posts</h2>
+    <%= Post.all.each do |p| %>
+        <div class="row">
+            <div class="media-object">
+                <%= image_tag p.user.avatar_url(28) %>
+                <%= "#{p.title}" %> -
+                <%= p.comments.count %> comments
+            </div>
+        </div>
+    <% end %>
+<% end %>
