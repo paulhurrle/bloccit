@@ -34,14 +34,6 @@
 <% end %>
 
 <% if user_has_favorites? %>
-    <h2>Favorite Posts</h2>
-    <%= Post.all.each do |p| %>
-        <div class="row">
-            <div class="media-object">
-                <%= image_tag p.user.avatar_url(28) %>
-                <%= "#{p.title}" %> -
-                <%= p.comments.count %> comments
-            </div>
-        </div>
-    <% end %>
+    <h2>Favorite Posts</h2> <br />
+    <%= render partial: 'posts/favorite_post', locals: { post: @post } %>
 <% end %>

@@ -1,0 +1,15 @@
+<%= current_user.get_favorites.each do |f| %>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="media-left">
+                <%= image_tag f.user.avatar_url(28) %>
+            </div>
+            <div class="media-body">
+                <%= link_to f.title, topic_post_path(f.topic, f) %> <br />
+                <%= pluralize(f.votes.count, "vote") %> -
+                <%= pluralize(f.comments.count, "comment") %>
+            </div>
+            <br />
+        </div>
+    </div>
+<% end %>

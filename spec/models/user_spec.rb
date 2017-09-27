@@ -112,4 +112,26 @@ RSpec.describe User, type: :model do
           expect(known_user.avatar_url(48)).to eq(expected_gravatar)
       end
   end
+
+  describe "#get_favorites" do
+      let(:user) { create(:user, email: "user@gmail.com") }
+      let(:post) { create(:post, title: "Dadadadadadada", body: "Hehehehehehehehehehehehehehe", user: user) }
+      let(:comment) { create(:comment, post: post, user: user) }
+      let(:new_user) { create(:user) }
+
+      it "retrieves favorited posts" do
+          expect(new_user.get_favorites.count).to eq(0)
+
+          new_user.favorites.create!(post: post)
+          expect(new_user.get_favorites.count).to eq(1)
+      end
+
+      it "retrieves favorited post user info" do
+          new_user.favorites.create!(post: post)
+          expect(new_user.get_favorites.first.title).to eq("Dadadadadadada")
+          expect(new_user.get_favorites.first.user).to eq(user)
+#          expect(new_user.get_favorites.first.comments.count).to eq(1)
+          expect(new_user.get_favorites.first.user.email).to eq("user@gmail.com")
+      end
+  end
 end
