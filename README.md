@@ -1,5 +1,4 @@
-{:.center}
-<img style="width: 600px;" src=".assets/images/bloccit_home.png" alt='Bloccit'>
+<img style="width: 600px;" src="app/assets/images/bloccit_home.png" alt='Bloccit'>
 
 ## Explanation
 
@@ -15,8 +14,7 @@ To begin, I created the development and production databases and installed the R
 
 The next step was to prepare my application for testing using the canonical framework RSpec. I installed the RSpec gem, created spec files for my controllers, and wrote several preliminary tests to validate that HTTP requests behaved as expected. Additionally, the database was seeded with random data to enable efficient testing and simulation of user behavior in the development environment.
 
-{:.center}
-<img style="width: 600px;" src=".assets/images/bloccit_spec.png" alt='Bloccit RSpec Test'>
+<img style="width: 600px;" src="app/assets/images/bloccit_spec.png" alt='Bloccit RSpec Test'>
 
 I then switched gears to focus on styling, opting to install the Bootstrap CSS framework to take advantage of pre-built layouts, forms, buttons, icons, and other features that would be ideal for my application.
 
@@ -24,22 +22,19 @@ Moving back to building the application logic, I created Post and Comment models
 
 To enable the create, read, update, and delete (CRUD) actions, controllers were generated and resources added to the config/routes.rb file, which specified the routes for each controller action. Then TDD was used to build the additional logic within the controllers to support the CRUD actions. Finally, the associated views were edited accordingly.
 
-{:.center}
-<img style="width: 600px;" src=".assets/images/bloccit_CRUD.png" alt='Bloccit CRUD'>
+<img style="width: 600px;" src="app/assets/images/bloccit_CRUD.png" alt='Bloccit CRUD'>
 
 User authentication required creating a User model and integrating Active Record callbacks to validate that attributes such as name, email, and password meet specified parameters. The next step was to create a User controller with corresponding CRUD methods, and update the view with user sign-in and sign-up interfaces. User sessions were established using a Sessions controller, and this combined with adding a role attribute to the User model and callbacks enabled user authorization for specified CRUD actions.
 
 Two of the next features of the Bloccit application were voting and favorites. These required creating Vote and Favorite models, associating them with the Post and User models, and testing and implementing the CRUD actions within the models. Further updates to the view and routes were needed to create the desired UI and UX behaviors.
 
-{:.center}
-<img style="width: 600px;" src=".assets/images/bloccit_favorite.png" alt='Bloccit Favorite'>
+<img style="width: 600px;" src="app/assets/images/bloccit_favorite.png" alt='Bloccit Favorite'>
 
 Adding notifications when a user comments on a favorited post was an interesting feature that required incorporating the SendGrid add-on and corresponding mailer files and methods to generate templated emails.
 
 A final touch to the application was to add personalized user images via the popular Gravatar service. Adding scoping to the models controlled the content that each user sees from the UI.
 
-{:.center}
-<img style="width: 600px;" src=".assets/images/bloccit_user_profile.png" alt='Bloccit User Profile'>
+<img style="width: 600px;" src="app/assets/images/bloccit_user_profile.png" alt='Bloccit User Profile'>
 
 ## Results
 
